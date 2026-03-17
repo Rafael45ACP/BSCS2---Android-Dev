@@ -1,9 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        Raid
+        Olypic Pr Tracker
     </title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="style.css">
 
 </head>
+<body class="bg-zinc-950 text-zinc-200 min-h-screen">
+    <div class="max-w-5xl mx-auto p-6">
+        <div class="flex flex-col items-center mb-10">
+            <div class="w-10 h-10 bg-emerald-500 rounded-2x1 flex items-center justify-center text-white text-3x1">🏋️</div>
+            <div>
+                <h1 class="title-font text-4x1 font-semibold tracking-tighter text-white">Olympic PR Tracker</h1>
+                <p class="text-emerald-400 text-sm mt-1">snatch • clean &amp; jerk</p>
+            </div>
+        </div>
+        <div id="header-name" class="hidden items-center gap-x-2 bg-zinc-900 px-5 py-2 rounded-3-1 text-sm font-medium">
+            <span class="text-emerald-400">👤</span>
+            <span id="current-username" class="text-white"></span>
+        </div>
+    </div>
+            
+
 </html>
