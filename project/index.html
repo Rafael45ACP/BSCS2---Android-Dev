@@ -3,30 +3,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        Olypic Pr Tracker
-    </title>
-    <--tailwind recomended by ai to speed up development and make it look better :)-->
+    <title>Olympic PR Tracker</title>
+    
+    <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <link rel="stylesheet" href="style.css">
-
+    <!-- Our custom CSS -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body class="bg-zinc-950 text-zinc-200 min-h-screen">
     <div class="max-w-5xl mx-auto p-6">
+        
+        <!-- HEADER -->
         <div class="flex flex-col items-center mb-10">
-            <div class="w-10 h-10 bg-emerald-500 rounded-2x1 flex items-center justify-center text-white text-3x1">🏋️</div>
-            <div>
-                <h1 class="title-font text-4x1 font-semibold tracking-tighter text-white">Olympic PR Tracker</h1>
+            <div class="w-10 h-10 bg-emerald-500 rounded-2xl flex items-center justify-center text-white text-3xl">🏋️</div>
+            <div class="text-center">
+                <h1 class="title-font text-4xl font-semibold tracking-tighter text-white">Olympic PR Tracker</h1>
                 <p class="text-emerald-400 text-sm mt-1">snatch • clean &amp; jerk</p>
             </div>
         </div>
-        <div id="header-name" class="hidden items-center gap-x-2 bg-zinc-900 px-5 py-2 rounded-3-1 text-sm font-medium">
+
+        <!-- Username header (shown after login) -->
+        <div id="header-name" class="hidden items-center gap-x-2 bg-zinc-900 px-5 py-2 rounded-3xl text-sm font-medium mx-auto mb-6">
             <span class="text-emerald-400">👤</span>
             <span id="current-username" class="text-white"></span>
         </div>
-    </div>
-    
+
+        <!-- PROFILE SELECTOR -->
         <div id="selector-screen" class="max-w-md mx-auto bg-zinc-900 rounded-3xl p-10 shadow-2xl">
             <div class="text-center mb-8">
                 <div class="w-20 h-20 mx-auto bg-gradient-to-br from-emerald-500 to-teal-500 rounded-3xl flex items-center justify-center text-5xl mb-6">🏋️</div>
@@ -49,61 +51,31 @@
             </div>
             
             <p class="text-center text-zinc-500 text-xs mt-8">Your data stays on this device only</p>
-        </div> 
+        </div>
 
+        <!-- MAIN PROFILE SCREEN -->
         <div id="profile-screen" class="hidden">
-            <div class="bg-zinc-900 rounded-3xl p-8 mb-8 border border-zinc-800">
-                <div class="flex justify-between items-start mb-6">
-                    <div>
-                        <p class="text-emerald-400 text-sm font-medium tracking-widest">CURRENT PERSONAL RECORDS</p>
-                        <div id="current-max-display" class="mt-4 grid grid-cols-2 gap-8"></div>
-                    </div>
-                    <button onclick="switchUserProfile()" class="text-zinc-400 hover:text-white transition-colors text-sm flex items-center gap-x-1">
-                        <span>SWITCH PROFILE</span>
-                        <span class="text-xl">↩</span>
-                    </button>
-                </div>
-            </div>
-
-        <div id="selector-screen" class="max-w-md mx-auto bg-zinc-900 rounded-3xl p-10 shadow-2xl">
-            <div class="text-center mb-8">
-                <div class="w-20 h-20 mx-auto bg-gradient-to-br from-emerald-500 to-teal-500 rounded-3xl flex items-center justify-center text-5xl mb-6">🏋️</div>
-                <h2 class="title-font text-3xl font-semibold text-white mb-2">Welcome to the platform</h2>
-                <p class="text-zinc-400">Enter your name to create or load your profile.</p>
-            </div>
             
-            <div class="space-y-6">
-                <div>
-                    <label class="block text-xs uppercase tracking-widest text-zinc-500 mb-2">YOUR NAME</label>
-                    <input id="name-input" type="text" placeholder="e.g. John Doe"
-                           class="w-full bg-zinc-800 border border-zinc-700 focus:border-emerald-500 rounded-2xl px-6 py-5 text-lg outline-none transition-all">
-                </div>
-                
-                <button onclick="initializeUserProfile()" 
-                        class="w-full bg-emerald-500 hover:bg-emerald-600 transition-all text-white font-semibold py-5 rounded-2xl text-lg flex items-center justify-center gap-x-2">
-                    <span>ENTER</span>
-                    <span class="text-2xl">→</span>
-                </button>
-            </div>
-
-        <div id="profile-screen" class="hidden">
-           
+            <!-- CURRENT PERSONAL RECORDS -->
             <div class="bg-zinc-900 rounded-3xl p-8 mb-8 border border-zinc-800">
                 <div class="flex justify-between items-start mb-6">
                     <div>
                         <p class="text-emerald-400 text-sm font-medium tracking-widest">CURRENT PERSONAL RECORDS</p>
                         <div id="current-max-display" class="mt-4 grid grid-cols-2 gap-8"></div>
                     </div>
-                    <button onclick="switchUserProfile()" class="text-zinc-400 hover:text-white transition-colors text-sm flex items-center gap-x-1">
+                    <button onclick="switchUserProfile()" 
+                            class="text-zinc-400 hover:text-white transition-colors text-sm flex items-center gap-x-1">
                         <span>SWITCH</span>
                         <span class="text-xl">↩</span>
                     </button>
                 </div>
             </div>
 
-        
+            <!-- ADD NEW ENTRY -->
             <div class="bg-zinc-900 rounded-3xl p-8 mb-8">
-                <h2 class="text-xl font-semibold mb-6 flex items-center gap-x-2"><span class="text-emerald-400">📅</span> Add New Entry</h2>
+                <h2 class="text-xl font-semibold mb-6 flex items-center gap-x-2">
+                    <span class="text-emerald-400">📅</span> Add New Entry
+                </h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
                         <label class="block text-xs uppercase text-zinc-400 mb-2">DATE</label>
@@ -111,19 +83,23 @@
                     </div>
                     <div>
                         <label class="block text-xs uppercase text-zinc-400 mb-2">Clean &amp; Jerk (kg)</label>
-                        <input id="lift1-input" type="number" step="0.5" placeholder="120" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white text-2xl font-medium">
+                        <input id="lift1-input" type="number" step="0.5" placeholder="120"
+                               class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white text-2xl font-medium">
                     </div>
                     <div>
                         <label class="block text-xs uppercase text-zinc-400 mb-2">Snatch (kg)</label>
-                        <input id="lift2-input" type="number" step="0.5" placeholder="90" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white text-2xl font-medium">
+                        <input id="lift2-input" type="number" step="0.5" placeholder="90"
+                               class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white text-2xl font-medium">
                     </div>
                 </div>
-                <button onclick="saveNewLiftEntry()" class="mt-8 w-full bg-white text-zinc-950 hover:bg-amber-300 transition-all font-bold py-6 rounded-2xl text-lg flex items-center justify-center gap-x-3">
+                <button onclick="saveNewLiftEntry()" 
+                        class="mt-8 w-full bg-white text-zinc-950 hover:bg-amber-300 transition-all font-bold py-6 rounded-2xl text-lg flex items-center justify-center gap-x-3">
                     SAVE ENTRY <span class="text-3xl">💾</span>
                 </button>
             </div>
 
-<div class="bg-zinc-900 rounded-3xl p-8 mb-8">
+            <!-- TRAINING LOAD CALCULATOR -->
+            <div class="bg-zinc-900 rounded-3xl p-8 mb-8">
                 <div class="flex items-center justify-between mb-6">
                     <h2 class="text-xl font-semibold flex items-center gap-x-2"><span>📉</span> Training Load Calculator</h2>
                     <div class="text-xs bg-zinc-800 px-4 py-2 rounded-2xl text-emerald-400 font-medium">using latest maxes</div>
@@ -131,7 +107,8 @@
                 <div class="flex flex-col md:flex-row gap-8 items-end">
                     <div class="flex-1">
                         <label class="block text-xs uppercase text-zinc-400 mb-3">Percentage of Max</label>
-                        <select id="percent-select" onchange="refreshLoadCalculator()" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-5 text-3xl font-semibold outline-none"></select>
+                        <select id="percent-select" onchange="refreshLoadCalculator()" 
+                                class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-5 text-3xl font-semibold outline-none"></select>
                     </div>
                     <div class="flex-1 grid grid-cols-2 gap-6">
                         <div class="bg-zinc-800 rounded-3xl p-6">
@@ -150,9 +127,11 @@
 
             <!-- HISTORY LOG -->
             <div class="bg-zinc-900 rounded-3xl p-8">
-                <h2 class="text-xl font-semibold mb-6 flex items-center gap-x-2"><span>📜</span>History</h2>
+                <h2 class="text-xl font-semibold mb-6 flex items-center gap-x-2"><span>📜</span> History</h2>
                 <div id="history-table-container" class="overflow-x-auto"></div>
-                <p id="no-entries-message" class="text-center py-12 text-zinc-500 hidden">No entries yet. Add your first max above!</p>
+                <p id="no-entries-message" class="text-center py-12 text-zinc-500 hidden">
+                    No entries yet. Add your first max above!
+                </p>
             </div>
         </div>
     </div>
