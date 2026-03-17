@@ -6,6 +6,7 @@
     <title>
         Olypic Pr Tracker
     </title>
+    <--tailwind recomended by ai to speed up development and make it look better :)-->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="stylesheet" href="style.css">
@@ -42,7 +43,7 @@
                 
                 <button onclick="initializeUserProfile()" 
                         class="w-full bg-emerald-500 hover:bg-emerald-600 transition-all text-white font-semibold py-5 rounded-2xl text-lg flex items-center justify-center gap-x-2">
-                    <span>ENTER GYM</span>
+                    <span>ENTER</span>
                     <span class="text-2xl">→</span>
                 </button>
             </div>
@@ -84,5 +85,44 @@
                     <span class="text-2xl">→</span>
                 </button>
             </div>
+
+        <div id="profile-screen" class="hidden">
+           
+            <div class="bg-zinc-900 rounded-3xl p-8 mb-8 border border-zinc-800">
+                <div class="flex justify-between items-start mb-6">
+                    <div>
+                        <p class="text-emerald-400 text-sm font-medium tracking-widest">CURRENT PERSONAL RECORDS</p>
+                        <div id="current-max-display" class="mt-4 grid grid-cols-2 gap-8"></div>
+                    </div>
+                    <button onclick="switchUserProfile()" class="text-zinc-400 hover:text-white transition-colors text-sm flex items-center gap-x-1">
+                        <span>SWITCH PROFILE</span>
+                        <span class="text-xl">↩</span>
+                    </button>
+                </div>
+            </div>
+
+        
+            <div class="bg-zinc-900 rounded-3xl p-8 mb-8">
+                <h2 class="text-xl font-semibold mb-6 flex items-center gap-x-2"><span class="text-emerald-400">📅</span> ADD NEW ENTRY</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div>
+                        <label class="block text-xs uppercase text-zinc-400 mb-2">DATE</label>
+                        <input id="date-input" type="date" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase text-zinc-400 mb-2">CLEAN &amp; JERK (kg)</label>
+                        <input id="lift1-input" type="number" step="0.5" placeholder="120" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white text-2xl font-medium">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase text-zinc-400 mb-2">SNATCH (kg)</label>
+                        <input id="lift2-input" type="number" step="0.5" placeholder="90" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white text-2xl font-medium">
+                    </div>
+                </div>
+                <button onclick="saveNewLiftEntry()" class="mt-8 w-full bg-white text-zinc-950 hover:bg-amber-300 transition-all font-bold py-6 rounded-2xl text-lg flex items-center justify-center gap-x-3">
+                    SAVE ENTRY <span class="text-3xl">💾</span>
+                </button>
+            </div>
+
+
 
 </html>
