@@ -95,7 +95,7 @@
                         <div id="current-max-display" class="mt-4 grid grid-cols-2 gap-8"></div>
                     </div>
                     <button onclick="switchUserProfile()" class="text-zinc-400 hover:text-white transition-colors text-sm flex items-center gap-x-1">
-                        <span>SWITCH PROFILE</span>
+                        <span>SWITCH</span>
                         <span class="text-xl">↩</span>
                     </button>
                 </div>
@@ -103,18 +103,18 @@
 
         
             <div class="bg-zinc-900 rounded-3xl p-8 mb-8">
-                <h2 class="text-xl font-semibold mb-6 flex items-center gap-x-2"><span class="text-emerald-400">📅</span> ADD NEW ENTRY</h2>
+                <h2 class="text-xl font-semibold mb-6 flex items-center gap-x-2"><span class="text-emerald-400">📅</span> Add New Entry</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
                         <label class="block text-xs uppercase text-zinc-400 mb-2">DATE</label>
                         <input id="date-input" type="date" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white">
                     </div>
                     <div>
-                        <label class="block text-xs uppercase text-zinc-400 mb-2">CLEAN &amp; JERK (kg)</label>
+                        <label class="block text-xs uppercase text-zinc-400 mb-2">Clean &amp; Jerk (kg)</label>
                         <input id="lift1-input" type="number" step="0.5" placeholder="120" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white text-2xl font-medium">
                     </div>
                     <div>
-                        <label class="block text-xs uppercase text-zinc-400 mb-2">SNATCH (kg)</label>
+                        <label class="block text-xs uppercase text-zinc-400 mb-2">Snatch (kg)</label>
                         <input id="lift2-input" type="number" step="0.5" placeholder="90" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-4 text-white text-2xl font-medium">
                     </div>
                 </div>
@@ -123,6 +123,42 @@
                 </button>
             </div>
 
+<div class="bg-zinc-900 rounded-3xl p-8 mb-8">
+                <div class="flex items-center justify-between mb-6">
+                    <h2 class="text-xl font-semibold flex items-center gap-x-2"><span>📉</span> Training Load Calculator</h2>
+                    <div class="text-xs bg-zinc-800 px-4 py-2 rounded-2xl text-emerald-400 font-medium">using latest maxes</div>
+                </div>
+                <div class="flex flex-col md:flex-row gap-8 items-end">
+                    <div class="flex-1">
+                        <label class="block text-xs uppercase text-zinc-400 mb-3">Percentage of Max</label>
+                        <select id="percent-select" onchange="refreshLoadCalculator()" class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-6 py-5 text-3xl font-semibold outline-none"></select>
+                    </div>
+                    <div class="flex-1 grid grid-cols-2 gap-6">
+                        <div class="bg-zinc-800 rounded-3xl p-6">
+                            <div class="text-emerald-400 text-xs mb-1">Clean &amp; Jerk</div>
+                            <div id="lift1-result" class="text-5xl font-bold text-white">—</div>
+                            <div id="lift1-percent-label" class="text-zinc-500 text-sm">kg at —%</div>
+                        </div>
+                        <div class="bg-zinc-800 rounded-3xl p-6">
+                            <div class="text-emerald-400 text-xs mb-1">Snatch</div>
+                            <div id="lift2-result" class="text-5xl font-bold text-white">—</div>
+                            <div id="lift2-percent-label" class="text-zinc-500 text-sm">kg at —%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
+            <!-- HISTORY LOG -->
+            <div class="bg-zinc-900 rounded-3xl p-8">
+                <h2 class="text-xl font-semibold mb-6 flex items-center gap-x-2"><span>📜</span>History</h2>
+                <div id="history-table-container" class="overflow-x-auto"></div>
+                <p id="no-entries-message" class="text-center py-12 text-zinc-500 hidden">No entries yet. Add your first max above!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
 </html>
